@@ -9,3 +9,5 @@ Homestead.json
 .env.*.php
 .env.php
 .env
+
+tests/_output/*
