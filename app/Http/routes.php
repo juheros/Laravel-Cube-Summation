@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/api/v1/summation', 'CubeSummation@start');
+Route::post('/api/v1/summation/test_case', 'CubeSummation@startTestCase');
