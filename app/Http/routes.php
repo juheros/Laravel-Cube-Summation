@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::post('/api/v1/summation', 'CubeSummation@start');
 Route::post('/api/v1/summation/test_case', 'CubeSummation@startTestCase');
 Route::post('/api/v1/summation/update', 'CubeSummation@update');
+Route::get('/api/v1/summation/query', 'CubeSummation@query');

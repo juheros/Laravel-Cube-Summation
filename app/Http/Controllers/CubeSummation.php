@@ -110,4 +110,40 @@ class CubeSummation extends Controller
     return Response::json($response, $status, array(), JSON_UNESCAPED_UNICODE);
   }
 
+  public function query(Request $request)
+  {
+    $x1 = (int) $request->input('x1');
+    $y1 = (int) $request->input('y1');
+    $z1 = (int) $request->input('z1');
+    $x2 = (int) $request->input('x2');
+    $y2 = (int) $request->input('y2');
+    $z2 = (int) $request->input('z2');
+    $querys_num = $request->session()->get('querys_num', 0);
+    $cube = $request->session()->get('cube', null);
+
+    $status = 500;
+    $response = array('message' => 'Error desconocido.');
+
+    if ($querys_num <= 0) {
+      $status = 401;
+      $response = array('message' => 'Operaciones agotadas.');
+
+    }else if ($cube) {
+      try {
+        $summation = $cube->query($x1, $y1, $z1, $x2, $y2, $z2);
+        $request->session()->decrement('querys_num');
+        $status = 200;
+        $response = array('summation' => $summation, 'message' => 'Operación exitosa.');
+      } catch (InvalidArgumentException $e) {
+        $status = 400;
+        $response = array('message' => 'Argumentos no válidos para esta solicitud.');
+      }
+    } else {
+      $status = 404;
+      $response = array('message' => 'Aún no se ha iniciado el caso de prueba.');
+    }
+
+    return Response::json($response, $status, array(), JSON_UNESCAPED_UNICODE);
+  }
+
 }
