@@ -19,7 +19,7 @@ class Cube
     }
 
     /**
-     * Fill the cube with zeros.
+     * Fill value of all block of the cube with zeros.
      */
     private function fillCube()
     {
