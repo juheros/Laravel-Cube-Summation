@@ -1,0 +1,23 @@
+{
+  "name": "cube-summation",
+  "homepage": "https://github.com/juheros/laravel-cube-summation",
+  "authors": [
+    "Julian Hernandez O. <juheros@gmail.com>"
+  ],
+  "description": "Aplicación en laravel basada en el reto \"cube summation\" de hackerrank",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "1.5.8",
+    "angular-cookies": "1.5.8",
+    "angular-resource": "1.5.8"
+  }
+}

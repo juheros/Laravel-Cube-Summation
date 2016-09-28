@@ -1,45 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" ng-app="cubeApp" ng-controller="cubeCtrl as cube">
     <head>
-        <title>Laravel</title>
+        <title>Cube summation</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
+        <!-- AngularJS -->
+        <script type="text/javascript" src="{{ URL::asset('bower_components/angular/angular.min.js') }}"></script>
+        <!-- Twitter Bootstrap -->
+        <link rel="stylesheet" type="text/css"
+              href="{{ URL::asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}"></script>
     </head>
     <body>
         <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1>Cube summation <small>Julián Hernández O.</small></h1>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Jquery: Requerido por bootstrap -->
+        <script type="text/javascript" src="{{ URL::asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <!-- Twitter Bootstrap -->
+        <script type="text/javascript" src="{{ URL::asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+        <!-- AngularJS: Módulos -->
+        <script type="text/javascript" src="{{ URL::asset('bower_components/angular-cookies/angular-cookies.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('bower_components/angular-resource/angular-resource.min.js') }}"></script>
+
+        <!-- AngularJS: Applicación - configuración -->
+        <script type="text/javascript" src="{{ URL::asset('app/app.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('app/config.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('app/constantes.js') }}"></script>
+
+        <!-- AngularJS: Applicación - controladores -->
+        <script type="text/javascript" src="{{ URL::asset('app/controllers/cube.js') }}"></script>
+
+        <!-- AngularJS: Applicación - recursos -->
+        <script type="text/javascript" src="{{ URL::asset('app/resources/cube.js') }}"></script>
     </body>
 </html>

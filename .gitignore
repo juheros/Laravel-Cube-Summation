@@ -11,3 +11,5 @@ Homestead.json
 .env
 
 tests/_output/*
+bower_components/
+.DS_Store
