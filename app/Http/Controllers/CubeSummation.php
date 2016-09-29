@@ -86,6 +86,12 @@ class CubeSummation extends Controller
 
   public function update(Request $request)
   {
+    $validator = Validator::make($request->all(), [
+        'x' => 'required|integer',
+        'y' => 'required|integer',
+        'z' => 'required|integer',
+        'w' => 'required|integer',
+    ]);
     $x = (int) $request->input('x');
     $y = (int) $request->input('y');
     $z = (int) $request->input('z');
@@ -96,7 +102,11 @@ class CubeSummation extends Controller
     $status = 500;
     $response = array('message' => 'Error desconocido.');
 
-    if ($querys_num <= 0) {
+    if($validator->fails()){
+        $status = 400;
+        $response = array('message' => 'Argumentos no válidos para esta solicitud.');
+
+    }else if ($querys_num <= 0) {
       $status = 401;
       $response = array('message' => 'Operaciones agotadas.');
 
@@ -120,6 +130,15 @@ class CubeSummation extends Controller
 
   public function query(Request $request)
   {
+    $validator = Validator::make($request->all(), [
+        'x1' => 'required|integer',
+        'y1' => 'required|integer',
+        'z1' => 'required|integer',
+        'x2' => 'required|integer',
+        'y2' => 'required|integer',
+        'z2' => 'required|integer',
+    ]);
+
     $x1 = (int) $request->input('x1');
     $y1 = (int) $request->input('y1');
     $z1 = (int) $request->input('z1');
@@ -132,7 +151,11 @@ class CubeSummation extends Controller
     $status = 500;
     $response = array('message' => 'Error desconocido.');
 
-    if ($querys_num <= 0) {
+    if($validator->fails()){
+        $status = 400;
+        $response = array('message' => 'Argumentos no válidos para esta solicitud.');
+
+    }else if ($querys_num <= 0) {
       $status = 401;
       $response = array('message' => 'Operaciones agotadas.');
 
