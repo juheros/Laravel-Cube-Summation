@@ -1,10 +1,10 @@
 
 (function() {
     'use strict';
-    
+
     /*
      * cubeApp
-     * 
+     *
      * Definición de la aplicación
      */
     angular

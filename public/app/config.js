@@ -9,32 +9,18 @@
      */
     angular
         .module('cubeApp')
-        .config(cubeConfig)
-        .run(cubeRun);
+        .config(cubeConfig);
 
-    cubeConfig.$inject = ['$httpProvider', '$interpolateProvider'];
-    cubeRun.$inject = ['$http', '$cookies'];
+    cubeConfig.$inject = ['$interpolateProvider'];
 
     /**
      * @function cubeConfig
      * @desc Realiza las configuraciones iniciales necesarias.
      */
-    function cubeConfig($httpProvider, $interpolateProvider) {
-        $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
+    function cubeConfig($interpolateProvider) {
         // Evitar conflictos con el otros template engines
         $interpolateProvider.startSymbol('[[');
         $interpolateProvider.endSymbol(']]');
-    }
-
-    /**
-     * @name cubeRun
-     * @desc Configura la cookie CSRF
-     */
-    function cubeRun($http, $cookies) {
-        $http.defaults.headers.post['X-CSRFToken'] = $cookies.get('csrftoken');
-        $http.defaults.xsrfCookieName = 'csrftoken';
-        $http.defaults.xsrfHeaderName = 'X-CSRFToken';
     }
 
 })();
